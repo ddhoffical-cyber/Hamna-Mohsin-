@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Hamna Mohsin | Frontend Web Developer</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #08050d;
+    --card: #120b1b;
+    --card2: #160d21;
+    --text: #ffffff;
+    --muted: #aaa1b5;
+    --purple: #8b5cf6;
+    --bright-purple: #a855f7;
+    --border: rgba(168,85,247,.25);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background:
+        radial-gradient(circle at 20% 10%, rgba(139,92,246,.12), transparent 30%),
+        radial-gradient(circle at 80% 40%, rgba(168,85,247,.08), transparent 30%),
+        var(--bg);
+    color: var(--text);
+    font-family: Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.modern-nav {
+    position: sticky;
+    top: 0;
+    z-index: 9999;
+    background: rgba(8,5,13,.88);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(168,85,247,.18);
+}
+
+.nav-inner {
+    height: 72px;
+    max-width: 1100px;
+    margin: auto;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+}
+
+.menu-btn {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background: rgba(168,85,247,.08);
+    border: 1px solid rgba(168,85,247,.35);
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.menu-btn span {
+    width: 19px;
+    height: 2px;
+    background: white;
+    border-radius: 5px;
+}
+
+.logo {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 28px;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -1px;
+}
+
+.nav-hire {
+    margin-left: auto;
+    padding: 9px 16px;
+    border: 1px solid rgba(168,85,247,.45);
+    background: rgba(139,92,246,.12);
+    border-radius: 9px;
+    color: white;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .3s;
+}
+
+.nav-hire:hover {
+    background: rgba(168,85,247,.25);
+    box-shadow: 0 0 20px rgba(168,85,247,.35);
+}
+
+.menu-panel {
+    position: absolute;
+    top: 72px;
+    left: 18px;
+    width: 215px;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    gap: 4px;
+    background: #120b1b;
+    border: 1px solid rgba(168,85,247,.3);
+    border-radius: 14px;
+    box-shadow: 0 20px 50px rgba(0,0,0,.6);
+}
+
+.menu-panel.active {
+    display: flex;
+}
+
+.menu-panel a {
+    padding: 13px 14px;
+    color: white;
+    border-radius: 9px;
+    font-size: 14px;
+    transition: .25s;
+}
+
+.menu-panel a:hover {
+    background: rgba(168,85,247,.15);
+    color: #c084fc;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+    min-height: 90vh;
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    align-items: center;
+    gap: 50px;
+    padding: 70px 0;
+}
+
+.hero small {
+    color: #a855f7;
+    letter-spacing: 3px;
+    font-size: 12px;
+}
+
+.hero h1 {
+    margin-top: 18px;
+    font-size: clamp(48px, 7vw, 82px);
+    line-height: .98;
+    letter-spacing: -4px;
+}
+
+.hero h1 span {
+    color: var(--bright-purple);
+}
+
+.hero-text {
+    max-width: 620px;
+    margin-top: 25px;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.hero-text strong {
+    color: #d8b4fe;
+}
+
+.hero-text span {
+    color: #a855f7;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.btn {
+    position: relative;
+    overflow: hidden;
+    padding: 14px 22px;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .5px;
+    transition: .3s;
+}
+
+.btn-primary {
+    background: #8b5cf6;
+    color: white;
+    box-shadow: 0 0 20px rgba(139,92,246,.2);
+}
+
+.btn-outline {
+    border: 1px solid rgba(168,85,247,.4);
+    background: rgba(168,85,247,.07);
+    color: white;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(168,85,247,.4);
+}
+
+/* =========================
+   PROFILE
+========================= */
+
+.profile-area {
+    display: flex;
+    justify-content: center;
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-photo-frame {
+    width: 245px;
+    height: 245px;
+    padding: 6px;
+    border-radius: 50%;
+    
+    
+    box-shadow:
+        0 0 20px rgba(139,92,246,.55),
+        0 0 60px rgba(139,92,246,.18);
+    animation: glow 3s ease-in-out infinite;
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    display: block;
+    
+}
+
+@keyframes glow {
+    0%,100% {
+        box-shadow: 0 0 20px rgba(139,92,246,.45);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(168,85,247,.7);
+    }
+
+    
+                           }
+/* =========================
+   SECTION
+========================= */
+
+section {
+    padding: 85px 0;
+}
+
+.section-tag {
+    color: #a855f7;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+.section-title {
+    margin-top: 15px;
+    font-size: clamp(38px,5vw,62px);
+    line-height: 1;
+}
+
+.section-title span {
+    color: #a855f7;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-box {
+    max-width: 800px;
+}
+
+.about-box p {
+    margin-top: 25px;
+    color: var(--muted);
+    line-height: 1.9;
+    font-size: 16px;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-box {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            rgba(10, 3, 20, 0.35),
+            rgba(10, 3, 20, 0.45)
+        ),
+        url("file_00000000891082118e71591aca6d44c0.png") center center / cover no-repeat !important;
+
+    border: 1px solid rgba(168, 85, 247, 0.35);
+    box-shadow:
+        0 0 30px rgba(168, 85, 247, 0.12),
+        inset 0 0 50px rgba(10, 3, 20, 0.25);
+  }
+  
+
+.contact-box p {
+    color: var(--muted);
+    margin: 18px auto 25px;
+    max-width: 550px;
+    line-height: 1.7;
+}
+
+.email {
+    color: #c084fc;
+    font-size: 15px;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    padding: 30px 0;
+    border-top: 1px solid rgba(168,85,247,.15);
+    text-align: center;
+    color: #756b80;
+    font-size: 12px;
+}
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light {
+    --bg: #f6f3fa;
+    --card: #ffffff;
+    --card2: #ffffff;
+    --text: #17121d;
+    --muted: #625a69;
+    --border: rgba(124,58,237,.22);
+
+    background:
+        radial-gradient(circle at 20% 10%, rgba(139,92,246,.12), transparent 30%),
+        #f6f3fa;
+    color: var(--text);
+}
+
+body.light .modern-nav {
+    background: rgba(255,255,255,.9);
+    border-color: rgba(124,58,237,.15);
+}
+
+body.light .menu-panel {
+    background: white;
+}
+
+body.light .menu-panel a {
+    color: #21172b;
+}
+
+body.light .hero-text,
+body.light .about-box p,
+body.light .skill-card p,
+body.light .contact-box p,
+body.light .stat-label {
+    color: #625a69;
+}
+
+body.light .skill-card,
+body.light .stat-card,
+body.light .contact-box {
+    background: rgba(255,255,255,.75);
+}
+
+body.light .logo,
+body.light .nav-hire,
+body.light .btn-outline {
+    color: #21172b;
+}
+
+body.light .menu-btn span {
+    background: #21172b;
+}
+
+.theme-btn {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 999;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgba(168,85,247,.4);
+    background: rgba(18,11,27,.9);
+    color: white;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 65px 0;
+    }
+
+    .profile-area {
+        order: -1;
+    }
+
+    .profile-photo-frame {
+        width: 210px;
+        height: 210px;
+    }
+
+    .hero-text {
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+    }
+
+    .buttons {
+        justify-content: center;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 500px) {
+
+    .container {
+        width: 92%;
+    }
+
+    .nav-inner {
+        height: 65px;
+        padding: 0 12px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    .nav-hire {
+        padding: 7px 11px;
+        font-size: 11px;
+    }
+
+    .menu-panel {
+        top: 65px;
+        left: 12px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+        letter-spacing: -2px;
+    }
+
+    .hero-text {
+        font-size: 14px;
+    }
+
+    .stats-section {
+        gap: 8px;
+    }
+
+    .stat-card {
+        padding: 18px 7px;
+    }
+
+    .stat-number {
+        font-size: 22px;
+    }
+
+    .stat-label {
+        font-size: 10px;
+    }
+
+    .skills-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+    }
+
+    .skill-card {
+        min-height: 150px;
+        padding: 18px;
+    }
+}
+  /* =========================
+   INDEX PAGE — PREMIUM THEME
+   ========================= */
+
+/* DARK MODE */
+body {
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(168, 85, 247, 0.12),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(124, 58, 237, 0.08),
+            transparent 30%
+        ),
+        #0b0610;
+
+    color: #ffffff;
+}
+
+
+/* HAMNA LOGO */
+.modern-nav .logo {
+    color: #c084fc !important;
+    text-decoration: none;
+    font-size: 29px !important;
+    font-weight: 800;
+    letter-spacing: -1px;
+
+    text-shadow:
+        0 0 8px rgba(168, 85, 247, 0.8),
+        0 0 18px rgba(168, 85, 247, 0.45);
+}
+
+
+/* HIRE ME */
+.modern-nav .nav-hire {
+    color: #ffffff !important;
+    background: rgba(168, 85, 247, 0.10);
+    border: 1px solid rgba(192, 132, 252, 0.40);
+    box-shadow: 0 0 18px rgba(168, 85, 247, 0.08);
+}
+
+
+/* MENU BUTTON */
+.menu-btn {
+    background: rgba(168, 85, 247, 0.08);
+    border: 1px solid rgba(168, 85, 247, 0.35);
+}
+
+.menu-btn span {
+    background: #c084fc;
+}
+
+
+/* MENU */
+.menu-panel {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(35, 18, 52, 0.98),
+            rgba(14, 8, 22, 0.99)
+        );
+
+    border: 1px solid rgba(168, 85, 247, 0.30);
+    box-shadow: 0 18px 50px rgba(0, 0, 0, 0.55);
+}
+
+.menu-panel a {
+    color: #ffffff;
+}
+
+.menu-panel a:hover {
+    background: rgba(168, 85, 247, 0.14);
+    color: #c084fc;
+}
+
+
+/* BUTTONS */
+.btn-primary {
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #a855f7
+    ) !important;
+
+    border: 1px solid #c084fc !important;
+    box-shadow: 0 0 25px rgba(168, 85, 247, 0.20);
+}
+
+.btn-outline {
+    color: #c084fc !important;
+    border-color: rgba(192, 132, 252, 0.45) !important;
+    background: rgba(168, 85, 247, 0.05);
+}
+.profile-photo {
+    border: none !important;
+    box-shadow:
+        0 0 8px rgba(168, 85, 247, 0.8),
+        0 0 20px rgba(192, 132, 252, 0.6),
+        0 0 40px rgba(168, 85, 247, 0.35);
+
+    animation: glitterGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glitterGlow {
+    from {
+        box-shadow:
+            0 0 6px rgba(168, 85, 247, 0.5),
+            0 0 15px rgba(192, 132, 252, 0.4),
+            0 0 28px rgba(168, 85, 247, 0.2);
+    }
+
+    to {
+        box-shadow:
+            0 0 12px rgba(216, 180, 254, 0.9),
+            0 0 25px rgba(168, 85, 247, 0.8),
+            0 0 45px rgba(168, 85, 247, 0.45);
+    }
+}
+
+/* STATS */
+.stat-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(35, 18, 52, 0.80),
+            rgba(14, 8, 22, 0.90)
+        ) !important;
+
+    border: 1px solid rgba(168, 85, 247, 0.22) !important;
+    border-radius: 18px !important;
+
+    box-shadow:
+        0 12px 35px rgba(0,0,0,0.25);
+}
+
+.stat-number {
+    color: #c084fc !important;
+}
+
+
+/* SKILLS */
+.skill-card {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(35, 18, 52, 0.92),
+            rgba(14, 8, 22, 0.98)
+        ) !important;
+
+    border: 1px solid rgba(168, 85, 247, 0.25) !important;
+    border-radius: 20px !important;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-7px);
+
+    border-color: rgba(192, 132, 252, 0.65) !important;
+
+    box-shadow:
+        0 15px 45px rgba(139, 92, 246, 0.16),
+        0 0 25px rgba(168, 85, 247, 0.08);
+}
+
+/* =========================
+   CONTACT - PURPLE AURORA
+========================= */
+
+#contact {
+    width: 100%;
+    margin: 0 !important;
+    padding: 25px 0 40px !important;
+}
+
+.contact-box {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    padding: 75px 20px !important;
+
+    background:
+        linear-gradient(
+            rgba(9, 3, 30, 0.28),
+            rgba(9, 3, 30, 0.38)
+        ),
+        url("northern-lights.png") center / cover no-repeat !important;
+
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    border-radius: 28px;
+
+    box-shadow:
+        0 0 35px rgba(168, 85, 247, 0.18),
+        inset 0 0 80px rgba(8, 2, 25, 0.25);
+}
+
+
+/* CONTACT TITLE */
+
+.contact-tag {
+    display: block;
+    margin-bottom: 22px;
+
+    color: #e9d5ff;
+    font-size: 15px;
+    letter-spacing: 6px;
+    font-weight: 600;
+
+    text-shadow:
+        0 0 10px #a855f7,
+        0 0 25px rgba(168, 85, 247, .8);
+}
+
+
+/* MAIN HEADING */
+
+.contact-box h2 {
+    margin: 0 auto;
+
+    max-width: 700px;
+
+    color: #ffffff;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.05;
+    font-weight: 800;
+
+    text-shadow:
+        0 4px 18px rgba(0,0,0,.65);
+}
+
+.contact-box h2 span {
+    color: #c084fc;
+
+    text-shadow:
+        0 0 12px rgba(192,132,252,.9),
+        0 0 30px rgba(168,85,247,.7);
+}
+
+
+/* DESCRIPTION */
+
+.contact-description {
+    margin: 28px auto 0;
+
+    color: #f1e7ff !important;
+    font-size: 18px;
+    line-height: 1.8;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.8);
+}
+
+/* =========================
+   CONTACT - PURPLE AURORA
+========================= */
+
+#contact {
+    width: 100%;
+    margin: 0 !important;
+    padding: 25px 0 40px !important;
+}
+
+.contact-box {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+
+    padding: 75px 20px !important;
+
+    background:
+        linear-gradient(
+            rgba(9, 3, 30, 0.28),
+            rgba(9, 3, 30, 0.38)
+        ),
+        url("northern-lights.png") center / cover no-repeat !important;
+
+    border: 1px solid rgba(192, 132, 252, 0.35);
+    border-radius: 28px;
+
+    box-shadow:
+        0 0 35px rgba(168, 85, 247, 0.18),
+        inset 0 0 80px rgba(8, 2, 25, 0.25);
+}
+
+
+/* CONTACT TITLE */
+
+.contact-tag {
+    display: block;
+    margin-bottom: 22px;
+
+    color: #e9d5ff;
+    font-size: 15px;
+    letter-spacing: 6px;
+    font-weight: 600;
+
+    text-shadow:
+        0 0 10px #a855f7,
+        0 0 25px rgba(168, 85, 247, .8);
+}
+
+
+/* MAIN HEADING */
+
+.contact-box h2 {
+    margin: 0 auto;
+
+    max-width: 700px;
+
+    color: #ffffff;
+    font-size: clamp(42px, 6vw, 70px);
+    line-height: 1.05;
+    font-weight: 800;
+
+    text-shadow:
+        0 4px 18px rgba(0,0,0,.65);
+}
+
+.contact-box h2 span {
+    color: #c084fc;
+
+    text-shadow:
+        0 0 12px rgba(192,132,252,.9),
+        0 0 30px rgba(168,85,247,.7);
+}
+
+
+/* DESCRIPTION */
+
+.contact-description {
+    margin: 28px auto 0;
+
+    color: #f1e7ff !important;
+    font-size: 18px;
+    line-height: 1.8;
+
+    text-shadow:
+        0 2px 10px rgba(0,0,0,.8);
+}
+
+
+/* EMAIL */
+
+.contact-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+
+    margin: 30px auto;
+
+    width: fit-content;
+
+    color: #ffffff !important;
+    font-size: 20px;
+    font-weight: 600;
+
+    text-decoration: none;
+
+    text-shadow:
+        0 0 12px rgba(192,132,252,.7);
+}
+
+.email-icon {
+    font-size: 32px;
+    color: #c084fc;
+
+    text-shadow:
+        0 0 12px #a855f7,
+        0 0 25px #a855f7;
+}
+
+.email-line {
+    width: 1px;
+    height: 42px;
+
+    background: rgba(255,255,255,.7);
+
+    box-shadow:
+        0 0 10px #c084fc;
+}
+
+
+/* EMAIL BUTTON */
+
+.email-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+
+    min-width: 220px;
+    padding: 17px 30px;
+
+    border-radius: 50px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #a855f7,
+            #9333ea
+        );
+
+    border: 1px solid #d8b4fe;
+
+    color: #ffffff !important;
+
+    font-size: 15px;
+    font-weight: 800;
+    letter-spacing: 2px;
+
+    text-decoration: none;
+
+    box-shadow:
+        0 0 15px rgba(168,85,247,.7),
+        0 0 35px rgba(168,85,247,.45);
+
+    transition: .35s ease;
+}
+
+.email-button span {
+    font-size: 20px;
+}
+
+.email-button:hover {
+    transform: translateY(-4px) scale(1.03);
+
+    box-shadow:
+        0 0 20px rgba(216,180,254,.9),
+        0 0 50px rgba(168,85,247,.7);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    #contact {
+        padding: 15px 0 30px !important;
+    }
+
+    .contact-box {
+        padding: 55px 16px !important;
+        border-radius: 24px;
+
+        background-position: center !important;
+    }
+
+    .contact-tag {
+        font-size: 12px;
+        letter-spacing: 5px;
+    }
+
+    .contact-box h2 {
+        font-size: 40px;
+    }
+
+    .contact-description {
+        font-size: 15px;
+    }
+
+    .contact-email {
+        gap: 10px;
+        font-size: 15px;
+    }
+
+    .email-icon {
+        font-size: 26px;
+    }
+
+    .email-line {
+        height: 32px;
+    }
+
+    .email-button {
+        min-width: 190px;
+        padding: 15px 22px;
+        font-size: 13px;
+    }
+}
+
+/* =========================
+   LIGHT MODE - CONTACT
+========================= */
+
+body.light #contact .contact-box {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        url("light-northern-lights.png")
+        center center / cover no-repeat !important;
+
+    border: none !important;
+    box-shadow: none !important;
+}
+
+
+/* CONTENT ABOVE IMAGE */
+
+body.light #contact .contact-box > * {
+    position: relative;
+    z-index: 2;
+}
+
+
+/* CONTACT TITLE */
+
+body.light #contact .contact-tag {
+    color: #ffffff !important;
+
+    text-shadow:
+        0 2px 8px rgba(40, 10, 70, .75),
+        0 0 12px rgba(124, 58, 237, .6);
+}
+
+
+/* MAIN HEADING */
+
+body.light #contact .contact-box h2 {
+    color: #ffffff !important;
+
+    text-shadow:
+        0 3px 12px rgba(30, 5, 55, .85);
+}
+
+body.light #contact .contact-box h2 span {
+    color: #7c3aed !important;
+
+    text-shadow:
+        0 2px 8px rgba(255,255,255,.9),
+        0 0 15px rgba(124,58,237,.45);
+}
+
+
+/* DESCRIPTION */
+
+body.light #contact .contact-description {
+    color: #ffffff !important;
+
+    text-shadow:
+        0 2px 9px rgba(30, 5, 55, .9);
+}
+
+
+/* EMAIL */
+
+body.light #contact .contact-email {
+    color: #ffffff !important;
+
+    text-shadow:
+        0 2px 9px rgba(30, 5, 55, .9);
+}
+
+body.light #contact .email-icon {
+    color: #7c3aed !important;
+
+    text-shadow:
+        0 0 10px rgba(124,58,237,.7);
+}
+
+body.light #contact .email-line {
+    background: rgba(255,255,255,.9) !important;
+}
+
+
+/* BUTTON */
+
+body.light #contact .email-button {
+    background:
+        linear-gradient(
+            135deg,
+            #7c3aed,
+            #9333ea,
+            #a855f7
+        ) !important;
+
+    color: #ffffff !important;
+
+    border: 2px solid #e9d5ff;
+
+    box-shadow:
+        0 0 18px rgba(124,58,237,.6),
+        0 0 40px rgba(168,85,247,.35);
+}
+  
+/* =========================
+   LIGHT MODE
+   ========================= */
+
+body.light {
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            rgba(139, 92, 246, 0.10),
+            transparent 30%
+        ),
+        #f7f4fb !important;
+
+    color: #17121d;
+}
+
+
+/* NAV */
+body.light .modern-nav {
+    background: rgba(255, 255, 255, 0.92) !important;
+    border-bottom: 1px solid rgba(124, 58, 237, 0.18);
+}
+
+
+/* LOGO */
+body.light .modern-nav .logo {
+    color: #7c3aed !important;
+    text-shadow: none !important;
+}
+
+
+/* HIRE ME */
+body.light .modern-nav .nav-hire {
+    color: #4c1d95 !important;
+    background: rgba(139, 92, 246, 0.08);
+}
+
+
+/* MENU BUTTON */
+body.light .menu-btn {
+    background: rgba(139, 92, 246, 0.08);
+}
+
+body.light .menu-btn span {
+    background: #21172b;
+}
+
+
+/* MENU PANEL */
+body.light .menu-panel {
+    background: #ffffff;
+    border-color: rgba(124, 58, 237, 0.20);
+}
+
+body.light .menu-panel a {
+    color: #21172b;
+}
+
+body.light .menu-panel a:hover {
+    background: rgba(139, 92, 246, 0.10);
+    color: #7c3aed;
+}
+
+
+/* TEXT */
+body.light .hero-text,
+body.light .about-box p,
+body.light .skill-card p,
+body.light .contact-box p,
+body.light .stat-label {
+    color: #625a69 !important;
+}
+
+
+/* CARDS */
+body.light .skill-card,
+body.light .stat-card,
+body.light .contact-box {
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,255,255,0.96),
+            rgba(245,240,250,0.98)
+        ) !important;
+
+    border-color: rgba(139, 92, 246, 0.25) !important;
+
+    box-shadow:
+        0 10px 30px rgba(80, 50, 100, 0.08);
+}
+
+
+/* STAT NUMBER */
+body.light .stat-number {
+    color: #7c3aed !important;
+}
+
+
+
+
+
+/* OUT
+  /* REDUCE SPACE BEFORE ACHIEVEMENTS */
+
+.contact-box .buttons {
+    margin-bottom: 10px !important;
+}
+
+.stats-section {
+    margin-top: 5px !important;
+  }
+  /* REDUCE SPACE AROUND ACHIEVEMENTS */
+
+.stats-section {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+                       }
+  /* =========================
+   BIG ACHIEVEMENTS
+========================= */
+
+.achievements-modern {
+    width: 100%;
+    max-width: 1000px;
+    margin: 25px auto 35px;
+    padding: 25px 10px;
+    box-sizing: border-box;
+}
+
+.achievements-title {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 30px;
+}
+
+.achievements-title h2 {
+    font-size: 23px;
+    letter-spacing: 6px;
+    color: #ffffff;
+    text-shadow:
+        0 0 12px rgba(168,85,247,.9),
+        0 0 30px rgba(168,85,247,.5);
+  }
+  
+.achievements-title span {
+    font-size: 21px;
+}
+
+
+.achievements-row {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 25px;
+}
+
+.achievement-box {
+    flex: 1;
+    text-align: center;
+    min-width: 0;
+}
+
+.achievement-box strong {
+    display: block;
+    font-size: 52px;
+    font-weight: 800;
+    color: #c084fc;
+    text-shadow:
+        0 0 12px rgba(168,85,247,.9),
+        0 0 30px rgba(168,85,247,.55);
+}
+
+.achievement-glow {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 20px;
+    color: #d8b4fe;
+    text-shadow:
+        0 0 10px #a855f7,
+        0 0 20px #a855f7;
+}
+
+.achievement-box h3 {
+    margin: 10px 0 4px;
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: #ffffff;
+}
+
+.achievement-box p {
+    margin: 0;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #91879d;
+}
+
+.achievement-divider {
+    width: 1px;
+    height: 75px;
+    flex-shrink: 0;
+    background: linear-gradient(
+        transparent,
+        #a855f7,
+        transparent
+    );
+    box-shadow: 0 0 12px rgba(168,85,247,.7);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .achievements-modern {
+        margin: 25px auto 30px;
+        padding: 20px 5px;
+    }
+
+    .achievements-title {
+        gap: 12px;
+        margin-bottom: 28px;
+    }
+
+    .achievements-title h2 {
+        font-size: 15px;
+        letter-spacing: 4px;
+    }
+
+    .achievements-title span {
+        font-size: 14px;
+    }
+
+    .achievements-row {
+        gap: 8px;
+    }
+
+    .achievement-box strong {
+        font-size: 38px;
+    }
+
+    .achievement-glow {
+        font-size: 16px;
+    }
+
+    .achievement-box h3 {
+        font-size: 10px;
+        letter-spacing: 2px;
+    }
+
+    .achievement-box p {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+
+    .achievement-divider {
+        height: 65px;
+    }
+  }
+/* Reduce space before Achievements */
+
+.buttons {
+    margin-bottom: 15px !important;
+}
+
+.achievements-modern {
+    margin-top: 5px !important;
+  }
+  .buttons {
+    margin-bottom: 5px !important;
+  }
+/* =========================
+   DEVELOPER TOOLKIT
+========================= */
+
+.toolkit-heading {
+    max-width: 650px;
+    margin-bottom: 45px;
+}
+
+.toolkit-tag {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: #c084fc;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-shadow: 0 0 12px rgba(168,85,247,.7);
+}
+
+.toolkit-heading h2 {
+    margin: 0;
+    font-size: clamp(36px, 5vw, 58px);
+    line-height: 1.05;
+    color: #ffffff;
+}
+
+.toolkit-heading h2 span {
+    color: #a855f7;
+    text-shadow:
+        0 0 15px rgba(168,85,247,.45);
+}
+
+.toolkit-heading p {
+    max-width: 500px;
+    margin-top: 18px;
+    color: #91879d;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* TOOL GRID */
+
+.toolkit-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+}
+
+.tool-item {
+    position: relative;
+    min-height: 190px;
+    padding: 24px;
+    box-sizing: border-box;
+    overflow: hidden;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(38,20,55,.95),
+            rgba(14,8,22,.98)
+        );
+
+    border: 1px solid rgba(168,85,247,.20);
+    border-radius: 20px;
+
+    transition:
+        transform .35s ease,
+        border-color .35s ease,
+        box-shadow .35s ease;
+}
+
+
+/* PURPLE LIGHT */
+
+.tool-item::before {
+    content: "";
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -60px;
+    right: -50px;
+
+    background: rgba(168,85,247,.22);
+    filter: blur(40px);
+
+    transition: .4s;
+}
+
+
+/* NUMBER */
+
+.tool-number {
+    position: absolute;
+    top: 16px;
+    right: 18px;
+
+    font-size: 10px;
+    letter-spacing: 2px;
+    color: rgba(192,132,252,.55);
+}
+
+
+/* ICON */
+
+.tool-icon {
+    position: relative;
+    z-index: 2;
+
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 25px;
+
+    background: rgba(168,85,247,.10);
+    border: 1px solid rgba(168,85,247,.22);
+    border-radius: 14px;
+
+    font-size: 23px;
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.08);
+}
+
+
+/* TEXT */
+
+.tool-item h3 {
+    position: relative;
+    z-index: 2;
+
+    margin: 0;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.tool-item p {
+    position: relative;
+    z-index: 2;
+
+    margin-top: 8px;
+    color: #91879d;
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+
+/* HOVER */
+
+.tool-item:hover {
+    transform: translateY(-8px);
+
+    border-color: rgba(192,132,252,.65);
+
+    box-shadow:
+        0 18px 40px rgba(139,92,246,.16),
+        0 0 25px rgba(168,85,247,.08);
+}
+
+.tool-item:hover::before {
+    transform: scale(1.5);
+    opacity: .9;
+}
+
+.tool-item:hover .tool-icon {
+    border-color: rgba(192,132,252,.55);
+
+    box-shadow:
+        0 0 20px rgba(168,85,247,.25);
+}
+
+
+/* =========================
+   LIGHT MODE
+========================= */
+
+body.light .toolkit-heading h2 {
+    color: #17121d;
+}
+
+body.light .toolkit-heading p {
+    color: #625a69;
+}
+
+body.light .tool-item {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.98),
+            rgba(246,241,250,.98)
+        );
+
+    border-color: rgba(139,92,246,.22);
+}
+
+body.light .tool-item h3 {
+    color: #21172b;
+}
+
+body.light .tool-item p {
+    color: #625a69;
+}
+
+body.light .tool-icon {
+    background: rgba(139,92,246,.08);
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 700px) {
+
+    .toolkit-heading {
+        margin-bottom: 30px;
+    }
+
+    .toolkit-heading h2 {
+        font-size: 38px;
+    }
+
+    .toolkit-heading p {
+        font-size: 13px;
+    }
+
+    .toolkit-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+
+    .tool-item {
+        min-height: 175px;
+        padding: 18px;
+    }
+
+    .tool-icon {
+        width: 42px;
+        height: 42px;
+        font-size: 20px;
+        margin-bottom: 20px;
+    }
+
+    .tool-item h3 {
+        font-size: 14px;
+    }
+
+    .tool-item p {
+        font-size: 10px;
+    }
+  }
+  /* FIX TOOLS & CONTACT OVERLAP */
+
+#skills {
+    margin-bottom: 25px !important;
+    padding-bottom: 20px !important;
+}
+
+#contact {
+    margin-top: 0 !important;
+    padding-top: 0 !important;
+      }
+  .contact-box > * {
+    position: relative;
+    z-index: 2;
+  }
+/* =========================
+   FIX MOBILE INTRODUCTION
+========================= */
+
+.hero-text {
+    width: 100% !important;
+    max-width: 650px !important;
+    box-sizing: border-box !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+@media (max-width: 600px) {
+
+    .hero-text {
+        width: 100% !important;
+        max-width: 100% !important;
+        padding-left: 18px !important;
+        padding-right: 18px !important;
+
+        font-size: 16px !important;
+        line-height: 1.8 !important;
+        text-align: center !important;
+    }
+  }
+  /* =========================
+   FIX DEVELOPER TOOLKIT MOBILE
+========================= */
+
+#skills {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.toolkit-heading {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+
+.toolkit-heading h2 {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+    word-wrap: break-word !important;
+}
+
+.toolkit-heading p {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+    overflow-wrap: break-word !important;
+}
+
+.toolkit-grid {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    #skills {
+        padding-left: 12px !important;
+        padding-right: 12px !important;
+        box-sizing: border-box !important;
+    }
+
+    .toolkit-heading h2 {
+        font-size: 36px !important;
+        line-height: 1.12 !important;
+    }
+
+    .toolkit-heading p {
+        font-size: 13px !important;
+        line-height: 1.7 !important;
+        padding-right: 5px !important;
+    }
+      }
+  /* =========================
+   LIGHT MODE ACHIEVEMENTS
+========================= */
+
+body.light .achievements-title h2 {
+    color: #7c3aed !important;
+
+    text-shadow:
+        0 0 10px rgba(124,58,237,.35),
+        0 0 22px rgba(168,85,247,.25);
+}
+
+body.light .achievements-title span {
+    color: #7c3aed !important;
+
+    text-shadow:
+        0 0 10px rgba(124,58,237,.55),
+        0 0 20px rgba(168,85,247,.35);
+}
+
+
+/* NUMBERS */
+
+body.light .achievement-box strong {
+    color: #9333ea !important;
+
+    text-shadow:
+        0 0 10px rgba(147,51,234,.45),
+        0 0 25px rgba(168,85,247,.30);
+}
+
+
+/* SMALL STAR */
+
+body.light .achievement-glow {
+    color: #a855f7 !important;
+
+    text-shadow:
+        0 0 8px rgba(168,85,247,.7),
+        0 0 18px rgba(168,85,247,.45);
+}
+
+
+/* MONTHS / PROJECTS / CLIENTS */
+
+body.light .achievement-box h3 {
+    color: #2b173d !important;
+}
+
+body.light .achievement-box p {
+    color: #625a69 !important;
+}
+
+
+/* DIVIDERS */
+
+body.light .achievement-divider {
+    background: linear-gradient(
+        transparent,
+        #a855f7,
+        transparent
+    ) !important;
+
+    box-shadow:
+        0 0 10px rgba(168,85,247,.45);
+}
+  
+  </style>
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="modern-nav">
+
+    <div class="nav-inner">
+
+        <button class="menu-btn" onclick="toggleMenu()" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <a href="#home" class="logo">
+            Hamna
+        </a>
+
+        <a href="mailto:ddhoffical@gmail.com" class="nav-hire">
+            Hire Me
+        </a>
+
+    </div>
+
+    <div class="menu-panel" id="menuPanel">
+
+        <a href="#home" onclick="toggleMenu()">Home</a>
+        <a href="#about" onclick="toggleMenu()">About</a>
+        <a href="#skills" onclick="toggleMenu()">Skills</a>
+        <a href="Project.html" onclick="toggleMenu()">Projects</a>
+        <a href="#contact" onclick="toggleMenu()">Contact</a>
+
+    </div>
+
+</nav>
+<!-- =========================  
+     HOME / HERO  
+========================= -->  
+  <main id="home">  <div class="container">  <section class="hero">  <div>  
+
+    <small>FRONTEND WEB DEVELOPER</small>  
+
+    <h1>  
+        I design  
+        digital experiences  
+        <span>that stand out.</span>  
+    </h1>  
+
+    <p class="hero-text">
+    I’m <strong>Hamna</strong> — a frontend web developer passionate
+    about creating <span>clean, modern and responsive websites</span>.
+    I combine attractive visual design with smooth user experiences
+    and responsive layouts that work beautifully across devices.
+    </p>
+
+    <div class="buttons">  
+
+        <a href="Project.html" class="btn btn-primary">  
+VIEW MY PROJECTS →  
+        </a>  
+
+        <a href="mailto:ddhoffical@gmail.com" class="btn btn-outline">  
+            LET'S WORK TOGETHER  
+        </a>  
+
+    </div>  
+
+</div>  
+
+
+<div class="profile-area">  
+
+    <div class="profile-card">  
+
+        <div class="profile-photo-frame">  
+
+            <img  
+                src="84678f38c6782506203b9f45ae1a9a33.jpg"  
+                alt="Hamna"  
+                class="profile-photo"  
+            >  
+
+        </div>  
+
+    </div>  
+
+</div>
+
+</section>  
+
+
+<!-- =========================
+     ACHIEVEMENTS
+========================= -->
+
+    <section class="achievements-modern">
+
+    <div class="achievements-title">
+        <span>✦</span>
+        <h2>ACHIEVEMENTS</h2>
+        <span>✦</span>
+    </div>
+
+    <div class="achievements-row">
+
+        <div class="achievement-box">
+            <span class="achievement-glow">✦</span>
+            <strong>09+</strong>
+            <h3>MONTHS</h3>
+            <p>EXPERIENCE</p>
+        </div>
+
+        <div class="achievement-divider"></div>
+
+        <div class="achievement-box">
+            <span class="achievement-glow">✦</span>
+            <strong>02</strong>
+            <h3>PROJECTS</h3>
+            <p>COMPLETED</p>
+        </div>
+
+        <div class="achievement-divider"></div>
+
+        <div class="achievement-box">
+            <span class="achievement-glow">✦</span>
+            <strong>05+</strong>
+            <h3>CLIENTS</h3>
+            <p>WORKED WITH</p>
+        </div>
+
+    </div>
+
+    </section>
+
+<!-- =========================
+     DEVELOPER TOOLKIT
+========================= -->
+
+<section id="skills">
+
+    <div class="toolkit-heading">
+        <span class="toolkit-tag">✦ DEVELOPER TOOLKIT ✦</span>
+
+        <h2>
+            Tools I use to
+            <span>create & build.</span>
+        </h2>
+
+        <p>
+            Technologies and tools I use to design, develop
+            and deliver modern digital experiences.
+        </p>
+    </div>
+
+    <div class="toolkit-grid">
+
+        <div class="tool-item">
+            <span class="tool-number">01</span>
+            <div class="tool-icon">🌐</div>
+            <h3>HTML5</h3>
+            <p>Structure & clean web pages</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">02</span>
+            <div class="tool-icon">🎨</div>
+            <h3>CSS3</h3>
+            <p>Modern layouts & animations</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">03</span>
+            <div class="tool-icon">⚡</div>
+            <h3>JavaScript</h3>
+            <p>Interactive web experiences</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">04</span>
+            <div class="tool-icon">💻</div>
+            <h3>VS Code</h3>
+            <p>Professional code editing</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">05</span>
+            <div class="tool-icon">🐙</div>
+            <h3>GitHub</h3>
+            <p>Projects & version control</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">06</span>
+            <div class="tool-icon">🔧</div>
+            <h3>Git</h3>
+            <p>Source code management</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">07</span>
+            <div class="tool-icon">📱</div>
+            <h3>Acode</h3>
+            <p>Mobile web development</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">08</span>
+            <div class="tool-icon">✨</div>
+            <h3>Canva</h3>
+            <p>Visual design & graphics</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">09</span>
+            <div class="tool-icon">🖥️</div>
+            <h3>Responsive Design</h3>
+            <p>Websites for every device</p>
+        </div>
+
+        <div class="tool-item">
+            <span class="tool-number">10</span>
+            <div class="tool-icon">💡</div>
+            <h3>UI Design</h3>
+            <p>Clean & engaging interfaces</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+    <div class="contact-box">
+
+        <span class="contact-tag">✦ CONTACT ✦</span>
+
+        <h2>
+            Let's build
+            <span>something great.</span>
+        </h2>
+
+        <p class="contact-description">
+            Have a website idea or project in mind?
+            <br>
+            Feel free to get in touch.
+        </p>
+
+        <a href="mailto:ddhoffical@gmail.com" class="contact-email">
+            <span class="email-icon">✉</span>
+            <span class="email-line"></span>
+            <span>ddhoffical@gmail.com</span>
+        </a>
+
+        <a href="mailto:ddhoffical@gmail.com" class="email-button">
+            <span>✉</span>
+            EMAIL ME →
+        </a>
+
+    
+</section>  
+
+
+
+</div>
+
+</main>
+
+
+<footer>
+    © 2026 Hamna Mohsin. All rights reserved.
+</footer>
+
+
+<!-- LIGHT MODE -->
+
+<button class="theme-btn" onclick="toggleTheme()" aria-label="Change theme">
+    ☼
+</button>
+
+
+<script>
+
+function toggleMenu() {
+    document.getElementById("menuPanel").classList.toggle("active");
+}
+
+function toggleTheme() {
+    document.body.classList.toggle("light");
+
+    if (document.body.classList.contains("light")) {
+        localStorage.setItem("theme", "light");
+    } else {
+        localStorage.setItem("theme", "dark");
+    }
+}
+
+if (localStorage.getItem("theme") === "light") {
+    document.body.classList.add("light");
+}
+
+</script>
+
+</body>
+</html>
